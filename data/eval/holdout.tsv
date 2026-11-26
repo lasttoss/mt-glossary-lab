@@ -1,0 +1,9 @@
+# Never used while writing rules: whatever this scores is what the table actually generalises to.
+Please deploy the hotfix after the standup	deploy
+The database is read-only during the migration window	database
+Our server returns 500 errors under load	server
+Push your branch and open a pull request	branch,pull request
+We debug the queue consumer every night	debug
+The release notes are missing the rollback step	release
+Review the query plan before you change the index	review,query
+Migrate the old logs to cold storage	migrate

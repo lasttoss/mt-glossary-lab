@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mtgloss"
+version = "0.1.0"
+description = "EN->VI machine translation with a term table, measured on a fixed evaluation set"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = []
+
+[project.optional-dependencies]
+model = ["ctranslate2>=4.4", "sentencepiece>=0.2"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+mtgloss = "mtgloss.cli:main"
+
+[tool.setuptools]
+packages = ["mtgloss"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

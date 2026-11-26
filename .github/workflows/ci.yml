@@ -1,0 +1,45 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install
+        run: pip install -e ".[dev]"
+      - name: Unit tests
+        run: python -m pytest -q
+      - name: Term table loads and applies
+        run: python -m mtgloss terms
+      - name: Guards on a stub translator
+        run: |
+          python - <<'PY'
+          from mtgloss import glossary, translator
+          rules = glossary.load()
+          out = translator.to_vi("deploy deploy deploy deploy deploy", translator.StubTranslator(), rules)
+          assert out["text"], "empty output"
+          assert len(out["text"].split()) < 5, out["text"]
+          print("guard ok:", out["text"])
+          PY
+
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Every claim in the README points at a file that exists
+        run: |
+          for f in data/glossary.tsv data/eval/dev.tsv data/eval/holdout.tsv docs/measurements.md; do
+            test -f "$f" || { echo "missing $f"; exit 1; }
+          done
+          echo "paths ok"

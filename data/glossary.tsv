@@ -1,0 +1,28 @@
+# wrong-vi<TAB>right-vi — the word a small model produces, and what a Vietnamese dev actually says.
+# Whole-word match, case-insensitive, applied once in file order.
+triển khai	deploy
+lên mạng	lên production
+vào sản xuất	production
+cơ sở dữ liệu	database
+máy chủ	server
+máy phục vụ	server
+di chuyển	migrate
+di dời	migrate
+tối ưu hóa	tối ưu
+truy vấn	query
+môi trường thử nghiệm	môi trường test
+môi trường kiểm tra	môi trường test
+gỡ lỗi	debug
+kiểm thử	test
+nhánh	branch
+bản phát hành	release
+yêu cầu kéo	pull request
+đánh giá	review
+xem xét	review
+thời gian đáp ứng	thời gian phản hồi
+# Rules added after reading the failures on data/eval/dev.tsv (not holdout.tsv).
+phát hành	release
+xem lại	review
+chuyển dữ liệu	migrate
+bộ thử	test
+sản xuất	production

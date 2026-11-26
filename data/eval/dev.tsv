@@ -1,0 +1,15 @@
+# english<TAB>required substrings in the Vietnamese output (comma separated, all must appear)
+We will deploy the new build to production tonight	deploy,production
+The server ran out of memory again at midnight	server
+Please open a pull request and ask for a review	pull request,review
+Can you migrate the users table to the new cluster	migrate
+The database query takes 400 milliseconds	database,query
+We need to roll back the release on Friday	release
+Add a debug log before the retry	debug
+The branch is behind main, pull first	branch
+Run the test suite before you merge	test
+The latency went up after the last deploy	deploy
+Our server needs more CPU during peak hours	server
+Can you review my pull request before lunch	pull request,review
+We migrated the database last weekend	migrate,database
+The production server is healthy again	server,production
