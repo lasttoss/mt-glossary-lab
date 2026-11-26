@@ -63,7 +63,7 @@ mtgloss/glossary.py     term table: whole-word rewrite, reports every rule that 
 mtgloss/postprocess.py  repetition guard + length cap for in-progress subtitle lines
 mtgloss/translator.py   CTranslate2 wrapper (lazy), full path model -> guards -> table
 mtgloss/cli.py          translate / eval / terms
-data/glossary.tsv       the table (24 rules)
+data/glossary.tsv       the table (25 rules)
 data/eval/dev.tsv       sentences + required terms
 data/eval/holdout.tsv   same shape, untouched while writing rules
 docs/measurements.md    raw command output behind the table above
@@ -71,7 +71,7 @@ docs/measurements.md    raw command output behind the table above
 
 ## Testing
 
-`python -m pytest -q` — 19 tests, none of them need a model: the guards are pure functions, the
+`python -m pytest -q` — 25 tests, none of them need a model: the guards are pure functions, the
 table is data, and `StubTranslator` stands in for the model. The model-backed numbers are produced
 locally by `eval`, not in CI.
 
