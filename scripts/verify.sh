@@ -27,6 +27,11 @@ if grep -qE '^test:' Makefile 2>/dev/null && { [ ! -f pom.xml ] || [ "$HAS_JDK" 
   make test || fail "make test"; RAN=1
 fi
 
+if [ "$RAN" = "0" ] && [ -f scripts/verify.local.sh ]; then
+  step "verify.local.sh (repo override)"
+  bash scripts/verify.local.sh || fail "verify.local.sh"; RAN=1
+fi
+
 if [ "$RAN" = "0" ]; then
   if [ -f pom.xml ] && [ -x ./mvnw ]; then
     if [ -z "${JAVA_HOME:-}" ]; then warn "không tìm thấy JDK ⇒ bỏ qua Maven test"
